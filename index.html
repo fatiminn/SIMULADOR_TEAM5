@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulador de Dilatación del Tiempo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <h1>🧪 Simulador de Dilatación del Tiempo</h1>
+  <p style="text-align:center"><strong>¡Atención!</strong> Solo puedes modificar la velocidad del <strong>Gemelo Viajero</strong>. El <strong>Gemelo en la Tierra</strong> permanece fijo. Observa cómo el tiempo avanza diferente para ambos.</p>
+
+  <div class="botones">
+    <button onclick="iniciarIntervalo()">▶️ Iniciar</button>
+    <button onclick="pausarIntervalo()">⏸️ Pausar</button>
+    <button onclick="reiniciarSimulacion()">🔄 Reiniciar</button>
+  </div>
+
+  <div class="contenedor">
+    <div class="gemelo-container gemelo-viajero">
+      <h2>🚗 Gemelo Viajero</h2>
+      <div id="gemeloViajero" class="gemelo" draggable="true"></div>
+      <div id="relojViajero" class="reloj"></div>
+      <p id="velocidadViajero">Velocidad simulada: 0.00c</p>
+      <p>Tiempo: <span id="tiempoViajero">0.00</span> años</p>
+    </div>
+
+    <div class="gemelo-container gemelo-tierra">
+      <h2>🌍 Gemelo en la Tierra <span style="font-size:0.8em;color:gray;">(fijo) 🔒</span></h2>
+      <div class="gemelo"></div>
+      <div class="reloj reloj-animado"></div>
+      <p>Velocidad: 0c</p>
+      <p>Tiempo: <span id="tiempoTierra">0.00</span> años</p>
+    </div>
+  </div>
+
+  <canvas id="grafica"></canvas>
+
+  <div class="explicacion">
+    <h2>📘 Explicación</h2>
+    <p>Este simulador ilustra la <strong>paradoja de los gemelos</strong>, una consecuencia de la <strong>Teoría de la Relatividad Especial</strong> de Einstein. Cuando un gemelo viaja a velocidades cercanas a la luz, el tiempo para él transcurre más lentamente en comparación con su hermano en la Tierra.</p>
+    <p>Este fenómeno se conoce como <strong>dilatación del tiempo</strong>. A medida que el gemelo viajero se desplaza más rápido, su reloj (simulado por el gráfico y el reloj giratorio) avanza más lentamente. Al regresar, habrá envejecido menos que su gemelo que permaneció en la Tierra.</p>
+    <p>La relación entre el tiempo medido por el gemelo viajero (ᵗ') y el tiempo medido en la Tierra (ᵗ) está dada por la fórmula:</p>
+    <pre><code>t' = t √(1 - v²/c²)</code></pre>
+    <h3>📝 Nota: ¿Por qué el gemelo en la Tierra está fijo?</h3>
+    <p>En esta simulación, el <strong>gemelo en la Tierra está fijo</strong> porque representa un <strong>marco de referencia constante</strong>, sin movimiento ni aceleración.</p>
+    <p>Aunque en la teoría del movimiento todo es relativo, en la <strong>Relatividad Especial</strong> lo que realmente importa es <em>quién cambia su velocidad</em>. El gemelo viajero se sube a una “montaña rusa cósmica”: acelera, da la vuelta y regresa. En cambio, el gemelo en la Tierra <strong>nunca acelera ni cambia de dirección</strong>.</p>
+    <p>Por eso, el tiempo del viajero es el que se ve afectado. Su reloj avanza más lento, y cuando vuelve, ha envejecido menos que su hermano.</p>
+    <p><em>Es como si uno viviera en una banca y el otro en una montaña rusa: ambos viven, pero el que se mueve siente el efecto del tiempo de manera diferente.</em></p>
+  </div>
+
+  <div style="max-width:600px; background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+    <h2>🧪 Calculadora Relativista</h2>
+    <p><strong>1.</strong> Elige una velocidad para el gemelo viajero arrastrando su ícono arriba.</p>
+    <p><strong>2.</strong> Luego elige cuántos años deben pasar en la Tierra y presiona el botón para ver el resultado.</p>
+
+    <label for="tiempoInput"><strong>⏳ Años en la Tierra:</strong></label>
+    <input type="range" id="tiempoInput" min="1" max="100" value="10" oninput="mostrarTiempoElegido()">
+    <span id="valorTiempo">10</span> años
+
+    <br><br>
+    <button onclick="calcularResultado()" style="padding:10px 20px; background:#28a745; color:white; border:none; border-radius:6px; cursor:pointer;">📊 Calcular resultado</button>
+
+    <div id="resultadoCalculo" style="margin-top:20px;"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

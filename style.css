@@ -1,0 +1,81 @@
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+h1 {
+  color: #333;
+  text-align: center;
+}
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.gemelo-container {
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 300px;
+  text-align: center;
+}
+.gemelo-viajero {
+  background-color: #e0f2ff;
+}
+.gemelo-tierra {
+  background-color: #f5f5f5;
+  opacity: 0.8;
+}
+.gemelo {
+  width: 80px;
+  height: 80px;
+  background: url('https://cdn-icons-png.flaticon.com/512/706/706830.png') no-repeat center/contain;
+  margin: 0 auto 10px;
+}
+.reloj {
+  width: 40px;
+  height: 40px;
+  background: url('https://cdn-icons-png.flaticon.com/512/61/61112.png') no-repeat center/contain;
+  margin: 10px auto;
+}
+.reloj-animado {
+  animation: girar 2s linear infinite;
+}
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.botones {
+  display: flex;
+  gap: 10px;
+}
+.botones button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+}
+.botones button:hover {
+  background-color: #0056b3;
+}
+#grafica {
+  max-width: 600px;
+}
+.explicacion {
+  max-width: 800px;
+  text-align: left;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
